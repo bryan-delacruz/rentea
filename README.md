@@ -1,12 +1,12 @@
-# Rent Platform
+# Rentea
 
 [🇪🇸 Leer en español](./README.es.md)
 
 Rental management for landlords: properties, tenants, leases, monthly charges, partial payments, PDF receipts and WhatsApp reminders, in English and Spanish.
 
-**Live demo:** [rent-platform-bdlc.vercel.app](https://rent-platform-bdlc.vercel.app) — click **Try the demo** to sign in to a sample account with one click, no password. The demo data resets every day.
+**Live demo:** [rentea-saas.vercel.app](https://rentea-saas.vercel.app) — click **Try the demo** to sign in to a sample account with one click, no password. The demo data resets every day.
 
-![Rent Platform dashboard: occupancy, collected versus expected, and overdue debt in soles and US dollars](./docs/dashboard.png)
+![Rentea dashboard: occupancy, collected versus expected, and overdue debt in soles and US dollars](./docs/dashboard.png)
 
 ## What it does
 

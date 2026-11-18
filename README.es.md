@@ -1,12 +1,12 @@
-# Rent Platform
+# Rentea
 
 [🇺🇸 Read in English](./README.md)
 
 Gestión de alquileres para propietarios: propiedades, inquilinos, contratos, cobros mensuales, pagos parciales, recibos en PDF y recordatorios por WhatsApp, en español e inglés.
 
-**Demo en vivo:** [rent-platform-bdlc.vercel.app](https://rent-platform-bdlc.vercel.app) — haz clic en **Try the demo** para entrar a una cuenta de ejemplo con un clic, sin contraseña. Los datos de la demo se reinician cada día.
+**Demo en vivo:** [rentea-saas.vercel.app](https://rentea-saas.vercel.app) — haz clic en **Try the demo** para entrar a una cuenta de ejemplo con un clic, sin contraseña. Los datos de la demo se reinician cada día.
 
-![Dashboard de Rent Platform: ocupación, cobrado versus esperado y deuda vencida en soles y dólares](./docs/dashboard.png)
+![Dashboard de Rentea: ocupación, cobrado versus esperado y deuda vencida en soles y dólares](./docs/dashboard.png)
 
 ## Qué hace
 

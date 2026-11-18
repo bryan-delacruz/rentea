@@ -1,6 +1,6 @@
 export const en = {
   meta: {
-    title: 'Rent Platform',
+    title: 'Rentea',
     description:
       'Rental management for landlords: properties, tenants, leases, monthly charges, receipts, and collections in one place.',
   },

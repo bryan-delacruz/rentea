@@ -2,7 +2,7 @@ import type { Dictionary } from './index';
 
 export const es: Dictionary = {
   meta: {
-    title: 'Rent Platform',
+    title: 'Rentea',
     description:
       'Gestión de alquileres para propietarios: propiedades, inquilinos, contratos, cobros mensuales, recibos y cobranza en un solo lugar.',
   },

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { LocaleSwitcher } from "@/components/LocaleSwitcher";
 import { getI18n } from "@/lib/i18n/server";
 
-const REPO_URL = "https://github.com/bryan-delacruz/rent-platform";
+const REPO_URL = "https://github.com/bryan-delacruz/rentea";
 const featureIcons = [FileText, Building2, LineChart];
 
 export default async function LandingPage() {
@@ -15,7 +15,7 @@ export default async function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="flex items-center justify-between border-b px-4 py-4 md:px-8">
-        <span className="text-xl font-bold text-primary">Rent Platform</span>
+        <span className="text-xl font-bold text-primary">Rentea</span>
         <div className="flex items-center gap-3">
           <LocaleSwitcher />
           {userId ? (

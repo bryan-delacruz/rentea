@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 // Preview shown when the link is shared (LinkedIn, WhatsApp, Slack…).
-export const alt = "Rent Platform — every rent, lease, and receipt in one place";
+export const alt = "Rentea — every rent, lease, and receipt in one place";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -29,7 +29,7 @@ export default function OpengraphImage() {
         }}
       >
         <div style={{ display: "flex", flexDirection: "column", gap: 28, maxWidth: 560 }}>
-          <div style={{ display: "flex", fontSize: 30, fontWeight: 700 }}>Rent Platform</div>
+          <div style={{ display: "flex", fontSize: 30, fontWeight: 700 }}>Rentea</div>
           <div style={{ display: "flex", fontSize: 66, fontWeight: 800, lineHeight: 1.05, letterSpacing: -2 }}>
             Every rent, lease, and receipt in one place.
           </div>

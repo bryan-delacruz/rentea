@@ -24,7 +24,7 @@ export function Navbar() {
     <nav className="flex shrink-0 flex-col border-b bg-card p-4 md:h-screen md:w-64 md:border-b-0 md:border-r md:sticky md:top-0">
       <div className="mb-4 flex items-center justify-between px-2 md:mb-8 md:px-4">
         <Link href="/dashboard" className="text-xl font-bold text-primary md:text-2xl">
-          Rent Platform
+          Rentea
         </Link>
         <div className="md:hidden">
           <UserButton />
