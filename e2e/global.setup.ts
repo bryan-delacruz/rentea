@@ -1,7 +1,7 @@
 import { clerkSetup } from '@clerk/testing/playwright';
 import { test as setup } from '@playwright/test';
-import { prisma } from '../lib/prisma';
-import { resetDemoData } from '../lib/demo-data';
+import { prisma } from '../src/infrastructure/prisma/client';
+import { resetDemoData } from '../src/infrastructure/demo/demo-data';
 import { OTHER_EMAIL, OWNER_EMAIL, userIdFor } from './users';
 
 setup('clerk testing token and clean test data', async () => {

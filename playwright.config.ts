@@ -27,6 +27,22 @@ export default defineConfig({
     trace: 'retain-on-failure',
     locale: 'en-US',
     timezoneId: 'America/Lima',
+    // The app opens in Spanish by default; the specs are written against the English UI.
+    storageState: {
+      cookies: [
+        {
+          name: 'locale',
+          value: 'en',
+          domain: 'localhost',
+          path: '/',
+          expires: -1,
+          httpOnly: false,
+          secure: false,
+          sameSite: 'Lax',
+        },
+      ],
+      origins: [],
+    },
   },
   projects: [
     { name: 'setup', testMatch: /global\.setup\.ts/ },

@@ -26,23 +26,31 @@ Gestión de alquileres para propietarios: propiedades, inquilinos, contratos, co
 | Auth | Clerk. Cada consulta y server action está limitada al propietario con sesión iniciada; el registro de otro propietario responde "no encontrado". |
 | Datos | PostgreSQL en Neon, Prisma 7. El dinero es `Decimal(12,2)`, las fechas son columnas `date` y los pagos son una tabla de transacciones. |
 | Validación | Esquemas Zod en cada server action, con códigos de error tipados que la UI traduce. |
-| Lógica de cobros | Funciones puras en `lib/billing` que trabajan en céntimos enteros y fechas ISO, con "hoy" en hora de Lima. |
-| UI | Tailwind CSS 4, shadcn/ui (Radix), Storybook para la librería de componentes |
-| Tests | Vitest para la lógica de cobros, analítica, formato y validación; Playwright end-to-end en escritorio y móvil |
+| Arquitectura | Arquitectura limpia: un dominio puro, casos de uso que solo dependen de interfaces (puertos) y adaptadores de Prisma, Clerk, PDF y WhatsApp alrededor. |
+| Lógica de cobros | Funciones puras en `src/domain/billing` que trabajan en céntimos enteros y fechas ISO, con "hoy" en hora de Lima. |
+| UI | Atomic design (átomos, moléculas, organismos, templates), Tailwind CSS 4, shadcn/ui (Radix), Storybook |
+| Tests | Vitest para el dominio, los casos de uso (con repositorios en memoria), formato y validación; Playwright end-to-end en escritorio y móvil |
 | Operación | Vercel, con dos crons diarios protegidos por `CRON_SECRET`; GitHub Actions para lint, tipos, tests y build |
 
 ```
-app/
-  page.tsx                 Landing pública
-  (auth)/                  Inicio de sesión y registro con Clerk
-  (app)/                   App protegida: dashboard, propiedades, inquilinos, contratos, pagos
-  demo/route.ts            Acceso a la demo con un clic (sign-in token de Clerk)
-  api/cron/                Cobros diarios y reinicio de la demo
-lib/
-  billing/                 Dinero, fechas y estado de pago (puras, con tests unitarios)
-  actions/                 Server actions: verificación de sesión, Zod, Prisma
-  data.ts                  Consultas limitadas al propietario que devuelven DTOs simples
+src/
+  domain/                  Entidades y reglas de negocio: cobros, contratos, errores. Sin Next.js ni Prisma.
+  application/
+    ports.ts               Interfaces que necesitan los casos de uso: repositorios, unidad de trabajo, reloj
+    use-cases/             Crear un contrato, registrar un pago, generar los cobros del mes...
+    validation.ts          Esquemas Zod para cada entrada
+  infrastructure/          Adaptadores: repositorios Prisma, auth con Clerk, recibos PDF, WhatsApp, cron
+  server/
+    container.ts           Elige el adaptador concreto de cada puerto
+    actions/               Server actions delgadas: sesión, validación, caso de uso, revalidación
+    queries.ts             Lecturas limitadas al propietario para Server Components
+  ui/
+    atoms/                 Button, Badge, Input, Money (aquí vive shadcn/ui)
+    molecules/             Insignias de estado, grupos de campos, selector de idioma
+    organisms/             Navbar, dashboard, formularios y diálogos que llaman a server actions
+    templates/             Estructuras de página de la app y del login
   i18n/                    Diccionarios en inglés y español
+  app/                     Solo rutas: páginas, layouts, acceso a la demo y crons
 e2e/                       Tests de Playwright
 prisma/                    Esquema, migraciones y seed de la demo
 ```
