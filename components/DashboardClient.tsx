@@ -144,7 +144,7 @@ export default function DashboardClient({ properties, leases, payments, tenants,
                             aria-valuemax={100}
                             aria-valuenow={Math.round(progress)}
                           >
-                            <div className="h-full bg-green-600" style={{ width: `${Math.min(progress, 100)}%` }} />
+                            <div className="h-full bg-brass" style={{ width: `${Math.min(progress, 100)}%` }} />
                           </div>
                         </div>
                       ) : (
@@ -154,13 +154,13 @@ export default function DashboardClient({ properties, leases, payments, tenants,
                   </Card>
 
                   {metrics.overdue[currency] > 0 && (
-                    <Card className="border-red-200 bg-red-50">
+                    <Card className="border-destructive/20 bg-destructive-soft">
                       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium text-red-900">{d.overdue}</CardTitle>
-                        <Activity className="h-4 w-4 text-red-600" aria-hidden />
+                        <CardTitle className="text-sm font-medium text-destructive">{d.overdue}</CardTitle>
+                        <Activity className="h-4 w-4 text-destructive" aria-hidden />
                       </CardHeader>
                       <CardContent>
-                        <div className="text-2xl font-bold text-red-700">{money(metrics.overdue[currency])}</div>
+                        <div className="text-2xl font-bold text-destructive">{money(metrics.overdue[currency])}</div>
                       </CardContent>
                     </Card>
                   )}

@@ -56,9 +56,9 @@ export function RegisterPaymentDialog({ payment, currency }: { payment: Payment;
           <dt className="text-muted-foreground">{t.payments.total}</dt>
           <dd className="text-right font-medium">{money(payment.amount)}</dd>
           <dt className="text-muted-foreground">{t.payments.paid}</dt>
-          <dd className="text-right font-medium text-green-700">{money(payment.amountPaid)}</dd>
+          <dd className="text-right font-medium text-success">{money(payment.amountPaid)}</dd>
           <dt className="text-muted-foreground">{t.payments.pending}</dt>
-          <dd className="text-right font-medium text-red-700">{money(pending / 100)}</dd>
+          <dd className="text-right font-medium text-destructive">{money(pending / 100)}</dd>
         </dl>
         <div className="space-y-2">
           <Label htmlFor={`amount-${payment.id}`}>{t.payments.amountToPay}</Label>

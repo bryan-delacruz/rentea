@@ -21,9 +21,9 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="flex shrink-0 flex-col border-b bg-card p-4 md:h-screen md:w-64 md:border-b-0 md:border-r md:sticky md:top-0">
+    <nav className="flex shrink-0 flex-col sticky top-0 z-40 border-b border-glass-border bg-sidebar p-4 backdrop-blur-xl backdrop-saturate-150 md:h-screen md:w-64 md:border-b-0 md:border-r">
       <div className="mb-4 flex items-center justify-between px-2 md:mb-8 md:px-4">
-        <Link href="/dashboard" className="text-xl font-bold text-primary md:text-2xl">
+        <Link href="/dashboard" className="text-xl font-semibold tracking-tight text-primary md:text-2xl">
           Rentea
         </Link>
         <div className="md:hidden">
@@ -40,9 +40,9 @@ export function Navbar() {
               href={item.href}
               aria-current={isActive ? 'page' : undefined}
               className={cn(
-                'flex shrink-0 items-center gap-3 rounded-lg px-3 py-2 transition-colors md:px-4 md:py-3',
+                'flex shrink-0 items-center gap-3 rounded-xl px-3 py-2 transition-colors md:px-4 md:py-3',
                 isActive
-                  ? 'bg-primary text-primary-foreground'
+                  ? 'bg-primary text-primary-foreground shadow-[inset_3px_0_0_var(--brass)]'
                   : 'text-muted-foreground hover:bg-muted hover:text-foreground',
               )}
             >

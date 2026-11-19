@@ -52,9 +52,9 @@ export function PaymentActions({
     <div className="flex justify-end gap-1">
       <Button size="icon" variant="ghost" aria-label={whatsappLabel} title={whatsappLabel} onClick={sendWhatsApp}>
         {isPaid ? (
-          <MessageCircle className="h-4 w-4 text-green-600" />
+          <MessageCircle className="h-4 w-4 text-success" />
         ) : (
-          <MessageSquareWarning className="h-4 w-4 text-amber-600" />
+          <MessageSquareWarning className="h-4 w-4 text-warning" />
         )}
       </Button>
 
@@ -66,7 +66,7 @@ export function PaymentActions({
           title={t.payments.downloadReceipt}
           onClick={() => downloadReceipt(locale, payment, currency, tenant.name, propertyName)}
         >
-          <FileDown className="h-4 w-4 text-blue-600" />
+          <FileDown className="h-4 w-4 text-primary" />
         </Button>
       )}
 

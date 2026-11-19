@@ -6,9 +6,9 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 const rows = [
-  { name: "Room 101", amount: "S/ 650.00", status: "Paid", color: "#16a34a" },
-  { name: "Shop A", amount: "S/ 1,800.00", status: "Partial", color: "#d97706" },
-  { name: "Shop B", amount: "$950.00", status: "Overdue", color: "#dc2626" },
+  { name: "Room 101", amount: "S/ 650.00", status: "Paid", color: "#2f6b4f" },
+  { name: "Shop A", amount: "S/ 1,800.00", status: "Partial", color: "#8c5a12" },
+  { name: "Shop B", amount: "$950.00", status: "Overdue", color: "#a23b2c" },
 ];
 
 export default function OpengraphImage() {
@@ -23,13 +23,13 @@ export default function OpengraphImage() {
           alignItems: "center",
           padding: 72,
           gap: 56,
-          color: "#0a0a0a",
+          color: "#1b2421",
           fontFamily: "sans-serif",
-          background: "linear-gradient(145deg, #ffffff 0%, #f4f4f5 100%)",
+          background: "radial-gradient(900px 500px at 0% 0%, #c9d8d1 0%, #eef0ec 60%)",
         }}
       >
         <div style={{ display: "flex", flexDirection: "column", gap: 28, maxWidth: 560 }}>
-          <div style={{ display: "flex", fontSize: 30, fontWeight: 700 }}>Rentea</div>
+          <div style={{ display: "flex", fontSize: 30, fontWeight: 700, color: "#1f3a34" }}>Rentea</div>
           <div style={{ display: "flex", fontSize: 66, fontWeight: 800, lineHeight: 1.05, letterSpacing: -2 }}>
             Every rent, lease, and receipt in one place.
           </div>

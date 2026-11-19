@@ -12,7 +12,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
       <Navbar />
       <div className="flex min-w-0 flex-1 flex-col">
         {isDemoOwner(userId) && (
-          <div className="border-b bg-amber-50 px-4 py-2 text-center text-sm text-amber-900 md:px-8">
+          <div className="border-b bg-warning-soft px-4 py-2 text-center text-sm text-warning md:px-8">
             {t.nav.demoBanner}
           </div>
         )}

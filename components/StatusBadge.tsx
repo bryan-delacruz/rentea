@@ -5,10 +5,10 @@ import { useI18n } from '@/lib/i18n/client';
 import type { LeaseStatus, PaymentStatus, PropertyStatus } from '@/lib/types';
 
 const paymentVariant = {
-  PAID: 'default',
-  PARTIAL: 'outline',
+  PAID: 'success',
+  PARTIAL: 'warning',
   OVERDUE: 'destructive',
-  PENDING: 'secondary',
+  PENDING: 'info',
 } as const;
 
 const leaseVariant = {

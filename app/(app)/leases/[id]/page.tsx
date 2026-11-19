@@ -94,14 +94,14 @@ export default async function LeaseDetailPage({ params }: { params: Promise<{ id
                     <div className="flex flex-col">
                       <span>{date(payment.dueDate)}</span>
                       {payment.overdueDays > 0 && (
-                        <span className="text-xs font-medium text-red-600">
+                        <span className="text-xs font-medium text-destructive">
                           {interpolate(t.payments.daysLate, { count: payment.overdueDays })}
                         </span>
                       )}
                     </div>
                   </TableCell>
                   <TableCell>{money(payment.amount)}</TableCell>
-                  <TableCell className={payment.amountPaid > 0 ? "font-medium text-green-700" : undefined}>
+                  <TableCell className={payment.amountPaid > 0 ? "font-medium text-success" : undefined}>
                     {money(payment.amountPaid)}
                   </TableCell>
                   <TableCell>
@@ -124,7 +124,7 @@ export default async function LeaseDetailPage({ params }: { params: Promise<{ id
                         {payment.transactions.map((tx) => (
                           <li key={tx.id} className="flex justify-between text-xs">
                             <span>{date(tx.date)}</span>
-                            <span className="font-medium text-green-700">+ {money(tx.amount)}</span>
+                            <span className="font-medium text-success">+ {money(tx.amount)}</span>
                           </li>
                         ))}
                       </ul>

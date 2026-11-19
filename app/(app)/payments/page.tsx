@@ -52,7 +52,7 @@ export default async function PaymentsPage() {
                     <div className="flex flex-col">
                       <span>{formatDate(payment.dueDate, locale)}</span>
                       {payment.overdueDays > 0 && (
-                        <span className="text-xs font-medium text-red-600">
+                        <span className="text-xs font-medium text-destructive">
                           {interpolate(t.payments.daysLate, { count: payment.overdueDays })}
                         </span>
                       )}
@@ -62,7 +62,7 @@ export default async function PaymentsPage() {
                     <div className="flex flex-col">
                       <span>{money(payment.amount)}</span>
                       {payment.status === "PARTIAL" && (
-                        <span className="text-xs font-medium text-green-700">
+                        <span className="text-xs font-medium text-success">
                           {interpolate(t.payments.partialPaid, { amount: money(payment.amountPaid) })}
                         </span>
                       )}

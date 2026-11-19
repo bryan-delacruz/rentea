@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Urbanist } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { enUS, esES } from "@clerk/localizations";
 import "./globals.css";
@@ -7,7 +7,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { I18nProvider } from "@/lib/i18n/client";
 import { getI18n } from "@/lib/i18n/server";
 
-const inter = Inter({ subsets: ["latin"] });
+const urbanist = Urbanist({ subsets: ["latin"], variable: "--font-urbanist" });
 
 // On Vercel the production domain is known at build time; no extra variable needed.
 const SITE_URL =
@@ -44,7 +44,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   return (
     <ClerkProvider localization={locale === "es" ? esES : enUS}>
       <html lang={locale}>
-        <body className={`${inter.className} min-h-screen bg-background text-foreground`} suppressHydrationWarning>
+        <body className={`${urbanist.variable} min-h-screen font-sans text-foreground antialiased`} suppressHydrationWarning>
           <I18nProvider locale={locale}>
             {children}
             <Toaster />

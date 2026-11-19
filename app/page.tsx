@@ -15,7 +15,7 @@ export default async function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="flex items-center justify-between border-b px-4 py-4 md:px-8">
-        <span className="text-xl font-bold text-primary">Rentea</span>
+        <span className="text-xl font-semibold tracking-tight text-primary">Rentea</span>
         <div className="flex items-center gap-3">
           <LocaleSwitcher />
           {userId ? (
@@ -32,7 +32,7 @@ export default async function LandingPage() {
 
       <main className="flex-1">
         <section className="mx-auto max-w-4xl px-4 py-16 text-center md:py-24">
-          <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">{t.landing.eyebrow}</p>
+          <p className="text-base font-medium text-brand-accent">{t.landing.eyebrow}</p>
           <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-6xl">{t.landing.title}</h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">{t.landing.subtitle}</p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">

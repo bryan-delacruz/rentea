@@ -1,19 +1,18 @@
 import 'server-only';
-import { cookies, headers } from 'next/headers';
+import { cookies } from 'next/headers';
 import {
   LOCALE_COOKIE,
+  defaultLocale,
   getDictionary,
   isLocale,
-  localeFromAcceptLanguage,
   type Dictionary,
   type Locale,
 } from './index';
 
-/** The saved language, or the browser's preferred one on the first visit. */
+/** The saved language, or Spanish until the visitor picks another one. */
 export async function getLocale(): Promise<Locale> {
   const saved = (await cookies()).get(LOCALE_COOKIE)?.value;
-  if (isLocale(saved)) return saved;
-  return localeFromAcceptLanguage((await headers()).get('accept-language'));
+  return isLocale(saved) ? saved : defaultLocale;
 }
 
 export async function getI18n(): Promise<{ locale: Locale; t: Dictionary }> {
