@@ -1,6 +1,6 @@
 import { setupClerkTestingToken } from '@clerk/testing/playwright';
 import { expect, test } from '@playwright/test';
-import { prisma } from '../lib/prisma';
+import { prisma } from '../src/infrastructure/prisma/client';
 import { signIn } from './fixtures';
 import { OTHER_EMAIL, OWNER_EMAIL, randomDni, uniqueSuffix, userIdFor } from './users';
 

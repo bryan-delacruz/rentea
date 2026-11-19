@@ -1,6 +1,6 @@
 import 'dotenv/config';
-import { prisma } from '../lib/prisma';
-import { resetDemoData } from '../lib/demo-data';
+import { prisma } from '../src/infrastructure/prisma/client';
+import { resetDemoData } from '../src/infrastructure/demo/demo-data';
 
 /**
  * Seeds the demo portfolio for DEMO_USER_ID (the Clerk user behind "Try the

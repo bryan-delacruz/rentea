@@ -26,23 +26,31 @@ Rental management for landlords: properties, tenants, leases, monthly charges, p
 | Auth | Clerk. Every query and server action is scoped to the signed-in landlord; another landlord's record answers "not found". |
 | Data | PostgreSQL on Neon, Prisma 7. Money is `Decimal(12,2)`, dates are `date` columns, payments are a table of transactions. |
 | Validation | Zod schemas on every server action, with typed error codes the UI translates. |
-| Billing logic | Pure functions in `lib/billing` that work in integer cents and ISO dates, with "today" in Lima time. |
-| UI | Tailwind CSS 4, shadcn/ui (Radix), Storybook for the component library |
-| Tests | Vitest for the billing, analytics, formatting and validation logic; Playwright end-to-end on desktop and mobile |
+| Architecture | Clean architecture: a pure domain, use cases that depend only on interfaces (ports), and Prisma, Clerk, PDF and WhatsApp adapters around them. |
+| Billing logic | Pure functions in `src/domain/billing` that work in integer cents and ISO dates, with "today" in Lima time. |
+| UI | Atomic design (atoms, molecules, organisms, templates), Tailwind CSS 4, shadcn/ui (Radix), Storybook |
+| Tests | Vitest for the domain, the use cases (with in-memory repositories), formatting and validation; Playwright end-to-end on desktop and mobile |
 | Ops | Vercel, with two daily crons protected by `CRON_SECRET`; GitHub Actions for lint, types, tests and build |
 
 ```
-app/
-  page.tsx                 Public landing page
-  (auth)/                  Clerk sign-in and sign-up
-  (app)/                   Protected app: dashboard, properties, tenants, leases, payments
-  demo/route.ts            One-click demo sign-in (Clerk sign-in token)
-  api/cron/                Daily charges and demo reset
-lib/
-  billing/                 Money, dates and payment status (pure, unit-tested)
-  actions/                 Server actions: auth check, Zod, Prisma
-  data.ts                  Owner-scoped queries that return plain DTOs
+src/
+  domain/                  Entities and business rules: billing, leases, errors. No Next.js, no Prisma.
+  application/
+    ports.ts               Interfaces the use cases need: repositories, unit of work, clock
+    use-cases/             Create a lease, register a payment, generate monthly charges...
+    validation.ts          Zod schemas for every input
+  infrastructure/          Adapters: Prisma repositories, Clerk auth, PDF receipts, WhatsApp, cron
+  server/
+    container.ts           Picks the concrete adapters for each port
+    actions/               Thin server actions: session, validation, use case, revalidation
+    queries.ts             Owner-scoped reads for Server Components
+  ui/
+    atoms/                 Button, Badge, Input, Money (shadcn/ui lives here)
+    molecules/             Status badges, form field groups, language switch
+    organisms/             Navbar, dashboard, forms and dialogs that call server actions
+    templates/             App and auth page shells
   i18n/                    English and Spanish dictionaries
+  app/                     Routes only: pages, layouts, the demo sign-in and the crons
 e2e/                       Playwright tests
 prisma/                    Schema, migrations and the demo seed
 ```
